@@ -341,21 +341,21 @@ const Projects = () => {
       desc: 'A comprehensive web-based inventory management system designed for efficiency and scalability.',
       tags: ['React', 'Node.js', 'MongoDB'],
       link: 'https://invepro.netlify.app',
-      image: '/public/Inventory-pro.png' // Dashboard Image
+      image: '/Inventory-pro.png' // Dashboard Image
     },
     {
       title: 'Pharma Course Marketplace',
       desc: 'An educational marketplace platform built for MZ Pharma Vision, connecting professionals with specialized pharmaceutical courses.',
       tags: ['Next.js', 'Tailwind', 'Stripe'],
       link: 'https://pharmabynfz.netlify.app/',
-      image: '/public/MZ-pharma.png'
+      image: '/MZ-pharma.png'
     },
     {
       title: 'Inventory Pro Desktop',
       desc: 'A cross-platform desktop application for inventory tracking, built for offline capabilities and native performance using Electron.js.',
       tags: ['Electron.js', 'React', 'Node.js'],
       link: 'https://invepro.netlify.app',
-      image: '/public/Inventory-pro.png' // Abstract Tech/Code Image
+      image: '/Inventory-pro.png' // Abstract Tech/Code Image
     }
   ];
 
