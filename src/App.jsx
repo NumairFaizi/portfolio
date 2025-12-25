@@ -254,7 +254,6 @@ const About = () => {
                 
                 {/* Profile Image Container */}
                 <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-slate-800 to-slate-900 border border-white/10 overflow-hidden shadow-2xl">
-                   {/* Replaced User Icon with Image tag */}
                    <img 
                     src="/dp.png" 
                     alt="Profile Picture of Numair Faizi"
@@ -310,7 +309,6 @@ const Skills = () => {
     { name: 'JavaScript', icon: <Code2 size={24} />, color: 'text-yellow-300' },
     { name: 'React', icon: <Globe size={24} />, color: 'text-cyan-400' },
     { name: 'Node.js', icon: <Terminal size={24} />, color: 'text-green-400' },
-    { name: 'TypeScript', icon: <Code2 size={24} />, color: 'text-blue-400' },
     { name: 'Database', icon: <Cpu size={24} />, color: 'text-purple-400' },
     { name: 'Git', icon: <Github size={24} />, color: 'text-orange-400' },
   ];
@@ -347,19 +345,19 @@ const Projects = () => {
       title: 'Inventory Pro Web App',
       desc: 'A comprehensive web-based inventory management system designed for efficiency and scalability.',
       tags: ['React', 'Node.js', 'MongoDB'],
-      link: '#'
+      link: '#https://invepro.netlify.app'
     },
     {
       title: 'Pharma Course Marketplace',
       desc: 'An educational marketplace platform built for MZ Pharma Vision, connecting professionals with specialized pharmaceutical courses.',
       tags: ['Next.js', 'Tailwind', 'Stripe'],
-      link: '#'
+      link: 'https://pharmabynfz.netlify.app/'
     },
     {
       title: 'Inventory Pro Desktop',
       desc: 'A cross-platform desktop application for inventory tracking, built for offline capabilities and native performance using Electron.js.',
       tags: ['Electron.js', 'React', 'Node.js'],
-      link: '#'
+      link: 'https://invepro.netlify.app'
     }
   ];
 
