@@ -15,15 +15,13 @@ import {
   Sparkles
 } from 'lucide-react';
 
-// --- Configuration: UPDATE YOUR LINKS HERE ---
 const socialLinks = {
-  github: "https://github.com/your-github-username", // Replace with your actual GitHub URL
-  linkedin: "https://www.linkedin.com/in/your-linkedin-profile", // Replace with your actual LinkedIn URL
-  email: "mailto:hello@numair.dev", // Replace with your actual email
-  twitter: "https://twitter.com/your-handle" // Optional
+  github: "https://github.com/NumairFaizi", 
+  linkedin: "https://linkedin.com/in/faizi-numair-mohammed-hesham-shahid-akhtar", 
+  email: "numairfaizee@gmail.com",
+  twitter: "https://x.com/NumairMd"
 };
 
-// --- Custom CSS for Animations ---
 const customStyles = `
   @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
@@ -57,16 +55,13 @@ const customStyles = `
   }
 `;
 
-// --- Custom Hooks ---
 
-// Hook for the typing effect in the Hero section
 const useTypewriter = (words, loop = true) => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
   const [blink, setBlink] = useState(true);
 
-  // Blinking cursor effect
   useEffect(() => {
     const timeout = setTimeout(() => {
       setBlink((prev) => !prev);
@@ -74,7 +69,6 @@ const useTypewriter = (words, loop = true) => {
     return () => clearTimeout(timeout);
   }, [blink]);
 
-  // Typing logic
   useEffect(() => {
     if (index === words.length && !loop) return;
 
@@ -99,7 +93,6 @@ const useTypewriter = (words, loop = true) => {
   return `${words[index].substring(0, subIndex)}${blink ? "|" : "\u00A0"}`;
 };
 
-// --- Components ---
 
 const Navbar = ({ activeSection, scrollToSection, mobileMenuOpen, setMobileMenuOpen }) => {
   const navLinks = [
@@ -120,7 +113,7 @@ const Navbar = ({ activeSection, scrollToSection, mobileMenuOpen, setMobileMenuO
             </span>
           </div>
           
-          {/* Desktop Menu */}
+          
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link) => (
@@ -139,7 +132,6 @@ const Navbar = ({ activeSection, scrollToSection, mobileMenuOpen, setMobileMenuO
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -151,7 +143,6 @@ const Navbar = ({ activeSection, scrollToSection, mobileMenuOpen, setMobileMenuO
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/10 absolute w-full">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -177,12 +168,10 @@ const Navbar = ({ activeSection, scrollToSection, mobileMenuOpen, setMobileMenuO
 const LiquidBackground = () => {
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden -z-10 bg-slate-950">
-      {/* Moving Liquid Blobs */}
       <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute top-0 -right-4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       
-      {/* Additional Ambient Glows for depth */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-900/50 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-900/30 blur-[100px] rounded-full pointer-events-none"></div>
     </div>
@@ -195,7 +184,6 @@ const Hero = ({ scrollToSection }) => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-        {/* Glass Container for Hero Content */}
         <div className="glass-card p-8 md:p-12 rounded-3xl inline-block max-w-4xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
           <div className="flex items-center justify-center gap-2 mb-6">
             <span className="h-px w-8 bg-cyan-500/50"></span>
@@ -258,11 +246,9 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex justify-center">
               <div className="relative w-72 h-72 md:w-96 md:h-96 group">
-                {/* Rotating Borders */}
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-cyan-500/30 animate-[spin_10s_linear_infinite]"></div>
                 <div className="absolute inset-4 rounded-full border-2 border-dashed border-purple-500/30 animate-[spin_15s_linear_infinite_reverse]"></div>
                 
-                {/* Profile Image Container */}
                 <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-slate-800 to-slate-900 border border-white/10 overflow-hidden shadow-2xl">
                     <img 
                      src="/dp.png" 
@@ -355,21 +341,21 @@ const Projects = () => {
       desc: 'A comprehensive web-based inventory management system designed for efficiency and scalability.',
       tags: ['React', 'Node.js', 'MongoDB'],
       link: 'https://invepro.netlify.app',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000' // Dashboard Image
+      image: '/public/project/Inventory-pro.png' // Dashboard Image
     },
     {
       title: 'Pharma Course Marketplace',
       desc: 'An educational marketplace platform built for MZ Pharma Vision, connecting professionals with specialized pharmaceutical courses.',
       tags: ['Next.js', 'Tailwind', 'Stripe'],
       link: 'https://pharmabynfz.netlify.app/',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000' // Medical/Lab Image
+      image: '/public/project/MZ-pharma.png'
     },
     {
       title: 'Inventory Pro Desktop',
       desc: 'A cross-platform desktop application for inventory tracking, built for offline capabilities and native performance using Electron.js.',
       tags: ['Electron.js', 'React', 'Node.js'],
       link: 'https://invepro.netlify.app',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000' // Abstract Tech/Code Image
+      image: '/public/project/Inventory-pro.png' // Abstract Tech/Code Image
     }
   ];
 
