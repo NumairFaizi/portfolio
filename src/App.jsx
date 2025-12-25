@@ -11,13 +11,19 @@ import {
   Menu, 
   X, 
   ChevronDown,
-  // User, // Removed User icon import as it's no longer needed
   Send,
   Sparkles
 } from 'lucide-react';
 
+// --- Configuration: UPDATE YOUR LINKS HERE ---
+const socialLinks = {
+  github: "https://github.com/your-github-username", // Replace with your actual GitHub URL
+  linkedin: "https://www.linkedin.com/in/your-linkedin-profile", // Replace with your actual LinkedIn URL
+  email: "mailto:hello@numair.dev", // Replace with your actual email
+  twitter: "https://twitter.com/your-handle" // Optional
+};
+
 // --- Custom CSS for Animations ---
-// We inject these styles directly into the component to make it a single-file solution.
 const customStyles = `
   @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
@@ -224,11 +230,15 @@ const Hero = ({ scrollToSection }) => {
           </div>
 
           <div className="mt-12 flex justify-center space-x-8">
-            {[Github, Linkedin, Mail].map((Icon, i) => (
-              <a key={i} href="#" className="p-3 glass-card rounded-full text-gray-400 hover:text-cyan-400 transition-colors transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20">
-                <Icon size={20} />
-              </a>
-            ))}
+            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-gray-400 hover:text-cyan-400 transition-colors transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20">
+              <Github size={20} />
+            </a>
+            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-gray-400 hover:text-cyan-400 transition-colors transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20">
+              <Linkedin size={20} />
+            </a>
+            <a href={socialLinks.email} className="p-3 glass-card rounded-full text-gray-400 hover:text-cyan-400 transition-colors transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20">
+              <Mail size={20} />
+            </a>
           </div>
         </div>
 
@@ -254,12 +264,11 @@ const About = () => {
                 
                 {/* Profile Image Container */}
                 <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-slate-800 to-slate-900 border border-white/10 overflow-hidden shadow-2xl">
-                   <img 
-                    src="/dp.png" 
-                    alt="Profile Picture of Numair Faizi"
-                    // Added classes for object-cover to fill the circle, and a grayscale hover effect
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-110"
-                   />
+                    <img 
+                     src="/dp.png" 
+                     alt="Profile Picture of Numair Faizi"
+                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-110"
+                    />
                 </div>
               </div>
             </div>
@@ -345,19 +354,22 @@ const Projects = () => {
       title: 'Inventory Pro Web App',
       desc: 'A comprehensive web-based inventory management system designed for efficiency and scalability.',
       tags: ['React', 'Node.js', 'MongoDB'],
-      link: '#https://invepro.netlify.app'
+      link: 'https://invepro.netlify.app',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000' // Dashboard Image
     },
     {
       title: 'Pharma Course Marketplace',
       desc: 'An educational marketplace platform built for MZ Pharma Vision, connecting professionals with specialized pharmaceutical courses.',
       tags: ['Next.js', 'Tailwind', 'Stripe'],
-      link: 'https://pharmabynfz.netlify.app/'
+      link: 'https://pharmabynfz.netlify.app/',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000' // Medical/Lab Image
     },
     {
       title: 'Inventory Pro Desktop',
       desc: 'A cross-platform desktop application for inventory tracking, built for offline capabilities and native performance using Electron.js.',
       tags: ['Electron.js', 'React', 'Node.js'],
-      link: 'https://invepro.netlify.app'
+      link: 'https://invepro.netlify.app',
+      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000' // Abstract Tech/Code Image
     }
   ];
 
@@ -369,22 +381,25 @@ const Projects = () => {
             <span className="text-cyan-400 font-medium uppercase tracking-widest text-sm">My Portfolio</span>
             <h2 className="text-4xl font-bold text-white mt-4">Featured Works</h2>
           </div>
-          <button className="hidden md:flex items-center gap-2 px-6 py-2 rounded-full glass-card text-gray-300 hover:text-white transition-all hover:bg-white/10">
+          <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 px-6 py-2 rounded-full glass-card text-gray-300 hover:text-white transition-all hover:bg-white/10">
             View Github <Github size={18} />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="glass-card rounded-2xl overflow-hidden group">
-              {/* Project Image Placeholder */}
-              <div className="h-56 w-full relative overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 group-hover:from-slate-700 group-hover:to-slate-800 transition-colors">
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <Code2 size={48} className="text-white/10 group-hover:text-white/20 transition-all duration-500 transform group-hover:scale-110" />
-                </div>
+              {/* Project Image */}
+              <div className="h-56 w-full relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                   <a href={project.link} className="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg shadow-cyan-500/25">
+                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg shadow-cyan-500/25">
                      View Project
                    </a>
                 </div>
@@ -403,10 +418,10 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex justify-between items-center pt-6 border-t border-white/10">
-                   <a href={project.link} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
                      <Github size={16} /> Source Code
                    </a>
-                   <a href={project.link} className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors">
+                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors">
                      Live Demo <ExternalLink size={16} />
                    </a>
                 </div>
@@ -416,9 +431,9 @@ const Projects = () => {
         </div>
         
         <div className="mt-12 text-center md:hidden">
-            <button className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-card text-gray-300 hover:text-white transition-all">
+            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-card text-gray-300 hover:text-white transition-all">
             View Github <Github size={18} />
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -479,12 +494,12 @@ const Contact = () => {
           <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
                <Mail size={16} className="text-cyan-400" />
-               <span>hello@numair.dev</span>
+               <a href={socialLinks.email} className="hover:text-cyan-400 transition-colors">hello@numair.dev</a>
             </div>
             <div className="flex gap-8">
-              <a href="#" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-cyan-400 transition-colors">GitHub</a>
-              <a href="#" className="hover:text-cyan-400 transition-colors">Twitter</a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
+              <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">GitHub</a>
+              <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">Twitter</a>
             </div>
           </div>
         </div>
