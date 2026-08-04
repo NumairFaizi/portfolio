@@ -1,25 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer components {
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-[16px] border border-white/10 shadow-lg;
-  }
-  
-  .glass-card:hover {
-    @apply bg-white/10 border-white/20 shadow-[0_0_15px_rgba(59,130,246,0.2)];
-  }
-
-  .text-glow {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-  }
+/* Hide scrollbar for a premium experience */
+::-webkit-scrollbar {
+  display: none;
 }
 
-/* Custom Animation Delays */
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-.animation-delay-4000 {
-  animation-delay: 4s;
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  background-color: #000000;
 }
