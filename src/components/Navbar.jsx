@@ -43,28 +43,16 @@ const Navbar = () => {
       className="fixed top-0 left-0 w-full h-[80px] z-[100] flex items-center justify-between px-8 md:px-16 bg-black/40 backdrop-blur-md"
     >
       {/* LEFT: Modern Monogram Logo */}
-      <Link
-        to="/"
-        ref={logoRef}
-        className="relative z-10 flex items-center space-x-3 group cursor-pointer"
-      >
-        <div className="w-9 h-9 border border-[#ff2a2a] flex items-center justify-center transition-all duration-500 group-hover:bg-[#ff2a2a] group-hover:rotate-45">
-          <span
-            className="text-white text-[13px] font-black tracking-tighter transition-all duration-500 group-hover:-rotate-45 group-hover:text-black"
-            style={{ fontFamily: '"Inter", sans-serif' }}
+        <Link to="/" ref={logoRef} className="text-white font-black text-[16px] tracking-[0.25em] uppercase flex items-center">
+          NUMAIR 
+          <span 
+            className="text-[#ff2a2a] text-[20px] font-black mx-1 inline-block"
+            style={{ WebkitTextStroke: '1.5px #ff2a2a' }}
           >
-            NF
-          </span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-white text-[11px] font-bold tracking-[0.25em] leading-none">
-            NUMAIR
-          </span>
-          <span className="text-[#ff2a2a] text-[9px] font-medium tracking-[0.3em] leading-tight mt-1">
-            FAIZI&deg;
-          </span>
-        </div>
-      </Link>
+            /
+          </span> 
+          FAIZI
+        </Link>
 
       {/* RIGHT SIDE: Navigation Links & Mobile Hamburger */}
       <div className="relative z-10 flex items-center">
