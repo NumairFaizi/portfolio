@@ -12,9 +12,10 @@ const Work = () => {
       gsap.from('.work-card', {
         y: 40,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
+        duration: 0.6,
+        stagger: 0.08,
         ease: 'power3.out',
+        clearProps: 'opacity,transform', // Clears opacity style after GSAP runs
       });
     }, containerRef);
 
@@ -23,7 +24,7 @@ const Work = () => {
 
   return (
     <div 
-      ref={containerRef} 
+      ref={containerRef}
       className="relative z-30 min-h-screen w-full bg-black text-white pt-32 pb-24 px-8 md:px-16"
     >
       <div className="max-w-[1800px] mx-auto">
@@ -38,7 +39,7 @@ const Work = () => {
               FEATURED WORK
             </h1>
           </div>
-          <p className="text-[rgba(255,255,255,0.5)] text-xs uppercase tracking-[2px] max-w-xs">
+          <p className="text-white/70 text-xs uppercase tracking-[2px] max-w-xs">
             EXPLORING THE INTERSECTION OF ENGINEERING, DESIGN, AND ARTIFICIAL INTELLIGENCE.
           </p>
         </div>
@@ -56,8 +57,7 @@ const Work = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover origin-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{ opacity: 1 }}
+                  className="w-full h-full object-cover origin-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-100"
                 />
                 <span className="absolute top-4 left-4 z-10 text-[#ff2a2a] text-xs font-mono font-bold tracking-widest bg-black/90 px-3 py-1 border border-[rgba(255,42,42,0.4)] shadow-md">
                   {project.number}
@@ -65,7 +65,7 @@ const Work = () => {
               </div>
 
               {/* Meta Info */}
-              <div className="flex justify-between items-center text-[11px] uppercase tracking-[2px] text-white/60 mb-3">
+              <div className="flex justify-between items-center text-[11px] uppercase tracking-[2px] text-white/80 mb-3">
                 <span>{project.category}</span>
                 <span>{project.year}</span>
               </div>
@@ -76,7 +76,7 @@ const Work = () => {
               </h2>
 
               {/* Description */}
-              <p className="text-white/80 text-sm font-light leading-relaxed mb-6">
+              <p className="text-white text-sm font-light leading-relaxed mb-6">
                 {project.description}
               </p>
 
@@ -85,7 +85,7 @@ const Work = () => {
                 {project.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="text-[10px] uppercase tracking-[1px] text-white/80 bg-white/5 border border-white/15 px-2.5 py-1"
+                    className="text-[10px] uppercase tracking-[1px] text-white bg-white/5 border border-white/15 px-2.5 py-1"
                   >
                     {tag}
                   </span>
