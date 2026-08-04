@@ -2,17 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 
-// Import local project images from src/assets/projects/
-import kavachhImg from '../assets/projects/kavachh.png';
-import inventoryImg from '../assets/projects/inv.png';
-import ummidImg from '../assets/projects/ummid.png';
-import afaImg from '../assets/projects/afa.png';
-import pharmaImg from '../assets/projects/pharma.png';
-import realImg from '../assets/projects/real-estate.png'
-
-// Project Database
+// Project Database (Referencing static images directly from public/assets/projects/)
 export const projectsData = [
-    {
+  {
     id: 'ummid-maintenance',
     number: '01',
     title: 'UMMID.COM PLATFORM',
@@ -20,7 +12,7 @@ export const projectsData = [
     year: '2026',
     client: 'Ummid News & Media Network',
     role: 'Lead Maintenance & Software Engineer',
-    image: ummidImg,
+    image: '/assets/projects/ummid.png',
     description: 'Ongoing technical maintenance, performance optimization, and server stability management for the high-traffic digital news portal Ummid.com.',
     overview: 'Ummid.com is a large-scale digital news platform requiring continuous high-concurrency handling and sub-second article delivery. The scope focuses on high-concurrency database optimizations, Varnish/Nginx edge cache management, PHP-FPM process tuning, and resolving legacy query bottlenecks during breaking news surges.',
     challenges: 'Sustaining uninterrupted uptime and low latency during traffic spikes while executing zero-downtime maintenance across legacy database indexing structures and cache layers.',
@@ -39,7 +31,7 @@ export const projectsData = [
     year: '2026',
     client: 'Enterprise Software',
     role: 'Full-Stack Desktop Developer',
-    image: inventoryImg,
+    image: '/assets/projects/inv.png',
     description: 'A single-contained, zero-external-dependency offline desktop inventory application built with Electron.js, SQLite, and customized file storage.',
     overview: 'Inventory Pro v2 delivers complete operational independence for businesses requiring rapid stock tracking, invoicing, and reporting without internet connectivity or external cloud databases.',
     challenges: 'Creating an ultra-lightweight architecture that maintains transactional integrity across thousands of localized records without introducing external database server dependencies.',
@@ -58,9 +50,9 @@ export const projectsData = [
     year: '2026',
     client: 'AFA Brand / Enterprise Client',
     role: 'Full-Stack Software Developer',
-    image: afaImg,
+    image: '/assets/projects/afa.png',
     description: 'A custom corporate portfolio and digital interaction portal engineered for streamlined brand representation and client engagement.',
-    overview: 'Developed to showcase enterprise services and streamline inquiries, the AFA platform features responsive micro-interactions, custom workflow integrations, and a tailored administrative control flow.',
+    overview: 'Developed to showcase enterprise services and streamline client inquiries, the AFA platform features responsive micro-interactions, custom workflow integrations, and a tailored administrative control flow.',
     challenges: 'Delivering a highly interactive visual interface while maintaining crisp load performance across mobile and desktop devices.',
     outcomes: [
       'Engineered responsive web client utilizing modern front-end frameworks.',
@@ -77,16 +69,16 @@ export const projectsData = [
     year: '2026',
     client: 'Healthcare & Pharma Education Provider',
     role: 'Lead Full-Stack Developer',
-    image: pharmaImg, // Using mapped project asset
+    image: '/assets/projects/pharma.png',
     description: 'A specialized e-learning marketplace designed for pharmaceutical professionals to enroll, purchase, and complete certified industry courses.',
-    overview: 'A full-scale educational platform offering course management, video lecture streaming, assessment modules, and secure payment processing tailored specifically for pharmaceutical regulations and medical professionals.',
+    overview: 'A full-scale educational platform offering course management, video lecture streaming, assessment modules, and secure payment processing tailored specifically for medical professionals.',
     challenges: 'Structuring a scalable database schema for tracking student course progression, quiz scoring, and automated certificate generation.',
     outcomes: [
       'Built a complete course purchasing and enrollment pipeline.',
       'Implemented secure user auth and granular access controls for video modules.',
       'Designed an intuitive admin dashboard for course creators and analytics.',
     ],
-    tags: ['React', 'Express.js', 'MongoDB', 'Node.js', 'Payment Gateway Integration'],
+    tags: ['React', 'Express.js', 'MongoDB', 'Node.js', 'Payment Gateway'],
   },
   {
     id: 'real-estate-listing-web',
@@ -96,7 +88,7 @@ export const projectsData = [
     year: '2025',
     client: 'Property Real Estate Group',
     role: 'Full-Stack Developer',
-    image: realImg,
+    image: '/assets/projects/real-estate.png',
     description: 'A feature-rich real estate portal offering property filter searches, agent contact flows, dynamic map integration, and immersive listing galleries.',
     overview: 'This platform connects property buyers with real estate listings through advanced multi-parameter searching (location, pricing, property type) and direct agent inquiry channels.',
     challenges: 'Optimizing high-resolution property image loading and handling dynamic location filtering without page reloads.',
@@ -146,7 +138,6 @@ const ProjectDetails = () => {
     );
   }
 
-  // Find Next Project for Footer Link
   const currentIndex = projectsData.findIndex((p) => p.id === projectId);
   const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
 
@@ -157,7 +148,7 @@ const ProjectDetails = () => {
       <div className="mb-12 reveal-element">
         <button
           onClick={() => navigate('/work')}
-          className="inline-flex items-center text-[12px] uppercase tracking-[2px] text-[#ff2a2a] hover:text-white transition-colors duration-300"
+          className="inline-flex items-center text-[12px] uppercase tracking-[2px] text-[#ff2a2a] hover:text-white transition-colors duration-300 cursor-pointer"
         >
           <span className="mr-2">←</span> BACK TO WORK
         </button>

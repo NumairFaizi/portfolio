@@ -18,30 +18,52 @@ const Navbar = () => {
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.2 });
-    tl.fromTo(logoRef.current,
+    tl.fromTo(
+      logoRef.current,
       { x: -30, opacity: 0 },
       { x: 0, opacity: 1, duration: 1, ease: 'expo.out' }
     )
-    .fromTo(linksRef.current,
-      { y: -15, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'expo.out' },
-      '-=0.8'
-    )
-    .fromTo(menuRef.current,
-      { x: 30, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: 'expo.out' },
-      '-=0.8'
-    );
+      .fromTo(
+        linksRef.current,
+        { y: -15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'expo.out' },
+        '-=0.8'
+      )
+      .fromTo(
+        menuRef.current,
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: 'expo.out' },
+        '-=0.8'
+      );
   }, []);
 
   return (
-    <nav 
+    <nav
       ref={navRef}
       className="fixed top-0 left-0 w-full h-[80px] z-[100] flex items-center justify-between px-8 md:px-16 bg-black/40 backdrop-blur-md"
     >
       {/* LEFT: Modern Monogram Logo */}
-      <Link to="/" ref={logoRef} className="text-white font-black text-[16px] tracking-[0.25em] uppercase">
-        NUMAIR <span className="text-[#ff2a2a] font-light">/</span> FAIZI
+      <Link
+        to="/"
+        ref={logoRef}
+        className="relative z-10 flex items-center space-x-3 group cursor-pointer"
+      >
+        <div className="w-9 h-9 border border-[#ff2a2a] flex items-center justify-center transition-all duration-500 group-hover:bg-[#ff2a2a] group-hover:rotate-45">
+          <span
+            className="text-white text-[13px] font-black tracking-tighter transition-all duration-500 group-hover:-rotate-45 group-hover:text-black"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            NF
+          </span>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-white text-[11px] font-bold tracking-[0.25em] leading-none">
+            NUMAIR
+          </span>
+          <span className="text-[#ff2a2a] text-[9px] font-medium tracking-[0.3em] leading-tight mt-1">
+            FAIZI&deg;
+          </span>
+        </div>
       </Link>
 
       {/* RIGHT SIDE: Navigation Links & Mobile Hamburger */}
@@ -53,7 +75,7 @@ const Navbar = () => {
             return (
               <Link
                 key={link.name}
-                ref={el => linksRef.current[index] = el}
+                ref={(el) => (linksRef.current[index] = el)}
                 to={link.path}
                 className={`relative text-[12px] uppercase tracking-[2px] transition-colors duration-300 ease-in-out hover:text-[#ff2a2a] group ${
                   isActive ? 'text-[#ff2a2a]' : 'text-white'
@@ -66,7 +88,7 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger Button (Mobile / Tablet Only) */}
-        <button 
+        <button
           ref={menuRef}
           className="flex md:hidden group flex-col justify-center items-end space-y-[6px] w-8 h-8 cursor-pointer"
           aria-label="Menu"

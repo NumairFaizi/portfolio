@@ -34,12 +34,12 @@ const services = [
   },
   {
     number: '04',
-    name: 'AUTOMOTIVE CAD & CONCEPT DRAFTING',
+    name: 'PLATFORM MAINTENANCE & TUNING',
     details: [
-      'Custom Track Car Renderings',
-      'Widebody Aerodynamic Blueprinting',
-      'Cinematic Concept Design',
-      'Visual Technical Drafting',
+      'High-Concurrency Caching (Varnish/Nginx)',
+      'MySQL Query Path Optimization',
+      'PHP-FPM Worker Process Tuning',
+      'Zero-Downtime Migration & Uptime Management',
     ],
   },
 ];
@@ -62,14 +62,20 @@ const Services = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black text-white pt-32 pb-24 px-8 md:px-16 max-w-[1800px] mx-auto">
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-black text-white pt-32 pb-24 px-8 md:px-16 max-w-[1800px] mx-auto"
+    >
       {/* Header */}
       <div className="mb-20 border-b border-[rgba(255,255,255,0.1)] pb-12">
         <div className="w-8 h-[1px] bg-[#ff2a2a] mb-5"></div>
         <h3 className="text-[#ff2a2a] text-[12px] uppercase tracking-[3px] font-medium mb-3">
           CAPABILITIES
         </h3>
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight uppercase" style={{ fontFamily: '"Inter", sans-serif' }}>
+        <h1
+          className="text-4xl md:text-6xl font-black tracking-tight uppercase"
+          style={{ fontFamily: '"Inter", sans-serif' }}
+        >
           SERVICES & EXPERTISE
         </h1>
       </div>
@@ -89,7 +95,10 @@ const Services = () => {
             </h2>
             <ul className="space-y-3">
               {service.details.map((detail, index) => (
-                <li key={index} className="text-[rgba(255,255,255,0.6)] text-sm font-light flex items-center space-x-3">
+                <li
+                  key={index}
+                  className="text-[rgba(255,255,255,0.6)] text-sm font-light flex items-center space-x-3"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a]"></span>
                   <span>{detail}</span>
                 </li>

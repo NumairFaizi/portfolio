@@ -10,14 +10,16 @@ import About from './pages/About';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/work/:projectId" element={<ProjectDetails />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <div className="bg-black min-h-screen w-full text-white">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:projectId" element={<ProjectDetails />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
