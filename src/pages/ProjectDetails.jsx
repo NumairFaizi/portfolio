@@ -2,102 +2,127 @@ import React, { useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 
-// Project Database (Referencing static images directly from public/assets/projects/)
+// Expanded Project Database synced with Faizi Numair's Engineering Portfolio
 export const projectsData = [
   {
-    id: 'ummid-maintenance',
+    id: 'ummid-news-platform',
     number: '01',
-    title: 'UMMID.COM PLATFORM',
-    category: 'Full-Stack / Platform Maintenance',
-    year: '2026',
-    client: 'Ummid News & Media Network',
-    role: 'Lead Maintenance & Software Engineer',
+    title: 'UMMID.COM NEWS PLATFORM',
+    category: 'Full-Stack / Web Operations',
+    year: '2022 - 2024',
+    client: 'Awaz Multimedia & Publications',
+    role: 'Full-Stack Developer & Operations',
     image: '/assets/projects/ummid.png',
-    description: 'Ongoing technical maintenance, performance optimization, and server stability management for the high-traffic digital news portal Ummid.com.',
-    overview: 'Ummid.com is a large-scale digital news platform requiring continuous high-concurrency handling and sub-second article delivery. The scope focuses on high-concurrency database optimizations, Varnish/Nginx edge cache management, PHP-FPM process tuning, and resolving legacy query bottlenecks during breaking news surges.',
-    challenges: 'Sustaining uninterrupted uptime and low latency during traffic spikes while executing zero-downtime maintenance across legacy database indexing structures and cache layers.',
+    liveUrl: 'https://www.ummid.com',
+    description: 'Maintained, optimized, and managed full-stack development operations for Ummid.com, a high-volume digital news portal established in 2005.',
+    overview: 'Ummid.com is a large-scale digital news platform requiring continuous high-concurrency handling and rapid content publishing. Focused on core publishing workflows, mobile responsiveness, server stability, and social distribution channels to maximize audience reach.',
+    challenges: 'Sustaining uninterrupted server uptime, managing high-volume traffic surges during breaking news, and optimizing legacy publishing layouts across diverse mobile browsers.',
     outcomes: [
-      'Configured Varnish and Nginx FastCGI edge caching to offload server compute spikes.',
-      'Optimized MySQL query execution paths and database index structures.',
-      'Sustained continuous high-concurrency uptime during peak news cycles.',
+      'Maintained and optimized core web publishing workflows and server infrastructure for high availability.',
+      'Enhanced responsive frontend layouts using HTML5, CSS3, JavaScript, and Bootstrap.',
+      'Integrated programmatic advertising networks, web analytics, and social sharing widgets (Facebook, WhatsApp).',
     ],
-    tags: ['PHP', 'MySQL', 'Nginx', 'Varnish Cache', 'Bootstrap', 'Performance Tuning'],
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Custom CMS', 'Web Analytics'],
   },
   {
-    id: 'inventory-pro-v2',
+    id: 'archi-athar-portfolio',
     number: '02',
-    title: 'INVENTORY PRO V2',
-    category: 'Desktop Engineering / Electron.js',
+    title: 'ARCHI-ATHAR PORTFOLIO PLATFORM',
+    category: 'Full-Stack Web Systems / Showcase',
     year: '2026',
-    client: 'Enterprise Software',
-    role: 'Full-Stack Desktop Developer',
-    image: '/assets/projects/inv.png',
-    description: 'A single-contained, zero-external-dependency offline desktop inventory application built with Electron.js, SQLite, and customized file storage.',
-    overview: 'Inventory Pro v2 delivers complete operational independence for businesses requiring rapid stock tracking, invoicing, and reporting without internet connectivity or external cloud databases.',
-    challenges: 'Creating an ultra-lightweight architecture that maintains transactional integrity across thousands of localized records without introducing external database server dependencies.',
-    outcomes: [
-      'Integrated SQLite local file storage with instantaneous query execution.',
-      'Constructed custom JSON/file persistence for automatic localized backup.',
-      'Delivered a modern dark UI tailored for high-volume daily enterprise operations.',
-    ],
-    tags: ['Electron.js', 'SQLite', 'React', 'Node.js', 'Tailwind CSS'],
-  },
-  {
-    id: 'afa-portfolio-portal',
-    number: '03',
-    title: 'AFA PORTFOLIO & PORTAL',
-    category: 'Full-Stack Application / Web Systems',
-    year: '2026',
-    client: 'AFA Brand / Enterprise Client',
+    client: 'Noor Infotech and Software Solutions',
     role: 'Full-Stack Software Developer',
     image: '/assets/projects/afa.png',
-    description: 'A custom corporate portfolio and digital interaction portal engineered for streamlined brand representation and client engagement.',
-    overview: 'Developed to showcase enterprise services and streamline client inquiries, the AFA platform features responsive micro-interactions, custom workflow integrations, and a tailored administrative control flow.',
-    challenges: 'Delivering a highly interactive visual interface while maintaining crisp load performance across mobile and desktop devices.',
+    liveUrl: '/',
+    description: 'A high-performance presentation platform for architectural and engineering projects featuring dynamic media galleries and responsive design.',
+    overview: 'Engineered to showcase complex architectural layouts and high-resolution visual assets with custom dynamic media management, fast load performance, and streamlined client interactions.',
+    challenges: 'Translating intricate architectural layouts and heavy visual media into fluid, fast-loading, responsive frontend interfaces without compromising image clarity.',
     outcomes: [
-      'Engineered responsive web client utilizing modern front-end frameworks.',
-      'Integrated streamlined inquiry pipelines for rapid user interaction.',
-      'Delivered clean, maintainable architecture for easy content updates.',
+      'Architected full-stack web application using React, Node.js, Express, and MongoDB.',
+      'Translated complex visual assets into highly responsive frontend components using Tailwind CSS.',
+      'Implemented robust RESTful endpoints and persistence schemas for seamless content updates.',
     ],
-    tags: ['React', 'Node.js', 'Tailwind CSS', 'MERN Stack'],
+    tags: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
   },
   {
-    id: 'pharma-course-marketplace',
+    id: 'intelligent-waf',
+    number: '03',
+    title: 'INTELLIGENT WEB APPLICATION FIREWALL',
+    category: 'AI & Cybersecurity / Full-Stack',
+    year: '2025 - 2026',
+    client: 'Savitribai Phule Pune University',
+    role: 'Lead ML & Security Engineer',
+    image: '/assets/projects/kavachh.png',
+    liveUrl: 'https://github.com/numairfaizi/kavachh-waf', // Update with repository or live URL
+    description: 'An advanced machine-learning-driven Web Application Firewall (WAF) to detect, classify, and mitigate malicious web payloads in real-time.',
+    overview: 'Engineered a full-stack security solution that analyzes incoming HTTP request payloads dynamically, utilizing machine learning algorithms to neutralize payload injections and threat vectors before they reach backend APIs.',
+    challenges: 'Structuring an automated real-time text vectorization pipeline with minimal overhead latency while maintaining high precision to prevent false positives on legitimate application traffic.',
+    outcomes: [
+      'Deployed automated Python preprocessing pipelines for log normalization and TF-IDF feature extraction.',
+      'Trained Random Forest classification models to identify malicious payload injection attempts accurately.',
+      'Engineered full-stack Node.js/Express integration layers to enforce real-time threat threshold rules.',
+    ],
+    tags: ['Python', 'Machine Learning', 'Random Forest', 'TF-IDF', 'Node.js', 'Express', 'React'],
+  },
+  {
+    id: 'inventory-management-system',
     number: '04',
-    title: 'PHARMA COURSE MARKETPLACE',
-    category: 'EdTech / Full-Stack Platform',
-    year: '2026',
-    client: 'Healthcare & Pharma Education Provider',
-    role: 'Lead Full-Stack Developer',
-    image: '/assets/projects/pharma.png',
-    description: 'A specialized e-learning marketplace designed for pharmaceutical professionals to enroll, purchase, and complete certified industry courses.',
-    overview: 'A full-scale educational platform offering course management, video lecture streaming, assessment modules, and secure payment processing tailored specifically for medical professionals.',
-    challenges: 'Structuring a scalable database schema for tracking student course progression, quiz scoring, and automated certificate generation.',
+    title: 'INVENTORY PRO V2 & DESKTOP SUITE',
+    category: 'Full-Stack & Desktop Engineering',
+    year: '2025 - 2026',
+    client: 'Noor Infotech and Software Solutions',
+    role: 'Full-Stack Desktop Developer',
+    image: '/assets/projects/inv.png',
+    liveUrl: 'https://github.com/numairfaizi/inventory-pro-v2', // Update with target URL
+    description: 'A single-contained, offline-first inventory tracking system built with Electron.js, SQLite, and MERN backend APIs.',
+    overview: 'Developed for enterprise operations requiring complete offline reliability without reliance on active internet connection or third-party cloud engines. Features automated invoicing, stock tracking, and localized persistence.',
+    challenges: 'Architecting an ultra-responsive interface capable of managing thousands of localized stock records while ensuring transactional integrity during offline-to-online sync.',
     outcomes: [
-      'Built a complete course purchasing and enrollment pipeline.',
-      'Implemented secure user auth and granular access controls for video modules.',
-      'Designed an intuitive admin dashboard for course creators and analytics.',
+      'Architected full-stack web and desktop software using MERN stack, Electron.js, and localized SQLite storage.',
+      'Optimized localized data persistence layers to resolve system bottlenecks and speed up queries.',
+      'Built responsive modern UI components leveraging Tailwind CSS and modular design.',
     ],
-    tags: ['React', 'Express.js', 'MongoDB', 'Node.js', 'Payment Gateway'],
+    tags: ['Electron.js', 'SQLite', 'React', 'Tailwind CSS', 'Express.js', 'Node.js'],
   },
   {
-    id: 'real-estate-listing-web',
+    id: 'pharmacy-course-marketplace',
     number: '05',
+    title: 'PHARMACY COURSE MARKETPLACE',
+    category: 'EdTech / Full-Stack Platform',
+    year: '2025',
+    client: 'Noor Infotech and Software Solutions',
+    role: 'Full-Stack MERN Developer',
+    image: '/assets/projects/pharma.png',
+    liveUrl: 'https://pharmabynfz.netlify.app', // Update with target URL
+    description: 'A specialized digital marketplace and e-learning platform tailored for pharmaceutical courses, interactive modules, and secure student workflows.',
+    overview: 'Designed specifically for healthcare professionals, this platform supports course enrollment pipelines, dynamic content delivery, structured course modules, and real-time student activity tracking.',
+    challenges: 'Building scalable MongoDB schemas to seamlessly link user course progress, certificate validation, and dynamic catalog administration.',
+    outcomes: [
+      'Architected full-stack MERN features to support dynamic course listings and enrollment workflows.',
+      'Built mobile-first dashboards using React.js and Tailwind CSS for optimized navigation.',
+      'Engineered scalable RESTful endpoints with Node.js and Express for session management and data safety.',
+    ],
+    tags: ['React', 'Tailwind CSS', 'Express.js', 'MongoDB', 'Node.js', 'REST API'],
+  },
+  {
+    id: 'real-estate-platform',
+    number: '06',
     title: 'REAL ESTATE LISTING PLATFORM',
     category: 'PropTech / Web Application',
-    year: '2025',
-    client: 'Property Real Estate Group',
-    role: 'Full-Stack Developer',
+    year: '2025 - 2026',
+    client: 'Noor Infotech and Software Solutions',
+    role: 'Full-Stack Software Developer',
     image: '/assets/projects/real-estate.png',
-    description: 'A feature-rich real estate portal offering property filter searches, agent contact flows, dynamic map integration, and immersive listing galleries.',
-    overview: 'This platform connects property buyers with real estate listings through advanced multi-parameter searching (location, pricing, property type) and direct agent inquiry channels.',
-    challenges: 'Optimizing high-resolution property image loading and handling dynamic location filtering without page reloads.',
+    liveUrl: '/', // Update with target URL
+    description: 'A feature-rich real estate portal offering dynamic search filters, agent contact flows, interactive property galleries, and location mapping.',
+    overview: 'Engineered to connect property buyers directly with listing agents through multi-parameter searches (pricing, location, property type) and asynchronous filtering without full page reloads.',
+    challenges: 'Optimizing high-resolution property image lazy-loading and multi-field database indexing for rapid filtering response times across extensive property records.',
     outcomes: [
-      'Built dynamic search filters for instant property query execution.',
-      'Integrated interactive image carousels and location mapping capabilities.',
-      'Streamlined lead generation forms connected directly to listing agents.',
+      'Built dynamic multi-parameter search filters for instantaneous query execution using RESTful APIs.',
+      'Integrated dynamic image carousels, property maps, and lead routing inquiry modules.',
+      'Designed responsive property layout views utilizing React.js and Tailwind CSS styling.',
     ],
-    tags: ['React', 'Tailwind CSS', 'Node.js', 'MongoDB', 'REST API'],
+    tags: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
   },
 ];
 
@@ -110,7 +135,6 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     if (!project) return;
-
     window.scrollTo(0, 0);
 
     const ctx = gsap.context(() => {
@@ -120,6 +144,7 @@ const ProjectDetails = () => {
         duration: 0.9,
         stagger: 0.12,
         ease: 'power3.out',
+        clearProps: 'all',
       });
     }, containerRef);
 
@@ -130,8 +155,13 @@ const ProjectDetails = () => {
     return (
       <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-8 text-center">
         <h1 className="text-4xl font-black mb-4">PROJECT NOT FOUND</h1>
-        <p className="text-[rgba(255,255,255,0.6)] mb-8">The project you are looking for does not exist or has been moved.</p>
-        <Link to="/work" className="text-[#ff2a2a] text-xs uppercase tracking-[2px] border-b border-[#ff2a2a] pb-1">
+        <p className="text-[rgba(255,255,255,0.6)] mb-8">
+          The project you are looking for does not exist or has been moved.
+        </p>
+        <Link
+          to="/work"
+          className="text-[#ff2a2a] text-xs uppercase tracking-[2px] border-b border-[#ff2a2a] pb-1"
+        >
           Back to Work
         </Link>
       </div>
@@ -142,8 +172,10 @@ const ProjectDetails = () => {
   const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black text-white pt-32 pb-24 px-8 md:px-16 max-w-[1800px] mx-auto">
-      
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-black text-white pt-32 pb-24 px-8 md:px-16 max-w-[1800px] mx-auto"
+    >
       {/* Back Button */}
       <div className="mb-12 reveal-element">
         <button
@@ -155,14 +187,34 @@ const ProjectDetails = () => {
       </div>
 
       {/* Header */}
-      <div className="mb-16 border-b border-[rgba(255,255,255,0.1)] pb-12 reveal-element">
-        <div className="flex items-center space-x-4 mb-4">
-          <span className="text-[#ff2a2a] text-sm font-mono">{project.number}</span>
-          <span className="text-[rgba(255,255,255,0.5)] text-xs uppercase tracking-[2px]">{project.category}</span>
+      <div className="mb-16 border-b border-[rgba(255,255,255,0.1)] pb-12 reveal-element flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <div>
+          <div className="flex items-center space-x-4 mb-4">
+            <span className="text-[#ff2a2a] text-sm font-mono">{project.number}</span>
+            <span className="text-[rgba(255,255,255,0.5)] text-xs uppercase tracking-[2px]">
+              {project.category}
+            </span>
+          </div>
+          <h1
+            className="text-4xl md:text-7xl font-black tracking-tight uppercase"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            {project.title}
+          </h1>
         </div>
-        <h1 className="text-4xl md:text-7xl font-black tracking-tight uppercase" style={{ fontFamily: '"Inter", sans-serif' }}>
-          {project.title}
-        </h1>
+
+        {/* Live Project Button Header */}
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-[2px] text-[#ff2a2a] bg-black border border-[#ff2a2a]/40 hover:bg-[#ff2a2a] hover:text-black transition-all duration-300 px-5 py-3 shadow-lg"
+          >
+            <span>LIVE PROJECT</span>
+            <span>↗</span>
+          </a>
+        )}
       </div>
 
       {/* Hero Cover Image */}
@@ -176,7 +228,7 @@ const ProjectDetails = () => {
       </div>
 
       {/* Project Meta Details */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-[rgba(255,255,255,0.08)] mb-20 reveal-element">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 py-8 border-y border-[rgba(255,255,255,0.08)] mb-20 reveal-element">
         <div>
           <h4 className="text-[#ff2a2a] text-[10px] uppercase tracking-[2px] mb-2">YEAR</h4>
           <p className="text-sm font-medium">{project.year}</p>
@@ -190,10 +242,28 @@ const ProjectDetails = () => {
           <p className="text-sm font-medium">{project.role}</p>
         </div>
         <div>
+          <h4 className="text-[#ff2a2a] text-[10px] uppercase tracking-[2px] mb-2">LIVE LINK</h4>
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-mono text-[#ff2a2a] underline underline-offset-4 hover:text-white transition-colors"
+            >
+              VISIT SITE ↗
+            </a>
+          ) : (
+            <p className="text-sm text-white/40">INTERNAL REPO</p>
+          )}
+        </div>
+        <div>
           <h4 className="text-[#ff2a2a] text-[10px] uppercase tracking-[2px] mb-2">TECH STACK</h4>
           <div className="flex flex-wrap gap-1.5 mt-1">
             {project.tags.map((tag, i) => (
-              <span key={i} className="text-[10px] uppercase tracking-[1px] text-[rgba(255,255,255,0.6)]">
+              <span
+                key={i}
+                className="text-[10px] uppercase tracking-[1px] text-[rgba(255,255,255,0.6)]"
+              >
                 {tag}{i < project.tags.length - 1 ? ' /' : ''}
               </span>
             ))}
@@ -211,7 +281,6 @@ const ProjectDetails = () => {
               {project.overview}
             </p>
           </div>
-
           <div>
             <h3 className="text-[#ff2a2a] text-[11px] uppercase tracking-[2px] mb-4">ENGINEERING CHALLENGES</h3>
             <p className="text-sm md:text-base font-light text-[rgba(255,255,255,0.65)] leading-relaxed">
@@ -226,7 +295,7 @@ const ProjectDetails = () => {
           <ul className="space-y-4">
             {project.outcomes.map((item, idx) => (
               <li key={idx} className="flex items-start space-x-3 text-sm text-[rgba(255,255,255,0.75)] font-light leading-relaxed">
-                <span className="text-[#ff2a2a] font-mono mt-0.5">—</span>
+                <span className="text-[#ff2a2a] font-mono mt-0.5">▸</span>
                 <span>{item}</span>
               </li>
             ))}
@@ -248,7 +317,6 @@ const ProjectDetails = () => {
           <span>→</span>
         </Link>
       </div>
-
     </div>
   );
 };
