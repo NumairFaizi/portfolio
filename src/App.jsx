@@ -10,7 +10,7 @@ import About from './pages/About';
 function App() {
   return (
     <Router>
-      <div className="bg-black min-h-screen w-full text-white">
+      <div className="bg-black min-h-screen w-full text-white overflow-x-hidden">
         <Navbar />
         <Routes>
           <Route path="/" element={<Hero />} />

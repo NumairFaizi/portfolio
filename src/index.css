@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Hide scrollbar for a premium experience */
+/* Hide scrollbar across all browsers */
 ::-webkit-scrollbar {
   display: none;
 }
@@ -9,4 +9,6 @@ html, body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
 }
